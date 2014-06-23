@@ -1,0 +1,34 @@
+// CRIANDO O NOVO PROJETO
+project --topLevelPackage br.edu.leds.ledscode.Boliche
+
+// CONFIGURANDO O BANCO DE DADOS COM JPA
+jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY
+
+// CRIANDO AS ENTIDADES DE DOMINIO
+entity jpa --class ~.domain.Jogador --activeRecord true --testAutomatically
+field string --fieldName nome --notNull --sizeMin 2 --sizeMax 100
+
+entity jpa --class ~.domain.Liga --activeRecord true --testAutomatically
+field string --fieldName nome --notNull --sizeMin 2 --sizeMax 100
+field set --fieldName jogadores --type ~.domain.Jogador --cardinality ONE_TO_MANY
+
+// CRIANDO OS TESTES DE INTEGRACAO
+test integration --entity ~.domain.Jogador
+test integration --entity ~.domain.Liga
+
+// CRIANDO A PARTE WEB
+web mvc setup
+web mvc all --package ~.web
+
+// INTERNACIONALIZACAO
+web mvc language --code de
+web mvc language --code es
+
+// CRIANDO OS TESTES SELENIUM
+selenium test --controller ~.web.JogadorController
+selenium test --controller ~.web.LigaController
+
+// CONFIGURACAO DO LOG
+logging setup --level INFO
+
+quit
