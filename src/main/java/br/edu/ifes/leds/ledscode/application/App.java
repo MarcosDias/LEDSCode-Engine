@@ -11,7 +11,7 @@ import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
 
 import br.edu.ifes.leds.ledscode.loader.Loader;
-import br.edu.ifes.leds.ledscode.metadominio.ClassDom;
+import br.edu.ifes.leds.ledscode.metaDominio.ClassDom;
 import br.edu.ifes.leds.ledscode.springROO.SpringROO;
 
 public class App {

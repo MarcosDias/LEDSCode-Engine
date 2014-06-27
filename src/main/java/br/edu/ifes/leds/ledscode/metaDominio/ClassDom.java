@@ -1,4 +1,4 @@
-package br.edu.ifes.leds.ledscode.metadominio;
+package br.edu.ifes.leds.ledscode.metaDominio;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.uml2.uml.Property;

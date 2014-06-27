@@ -6,7 +6,7 @@ import java.util.List;
 import org.eclipse.uml2.uml.Property;
 
 import br.edu.ifes.leds.ledscode.arquivo.Arquivo;
-import br.edu.ifes.leds.ledscode.metadominio.ClassDom;
+import br.edu.ifes.leds.ledscode.metaDominio.ClassDom;
 
 public class SpringROO {
 	private String scriptRoo;
