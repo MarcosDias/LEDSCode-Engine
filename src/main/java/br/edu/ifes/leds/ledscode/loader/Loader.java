@@ -12,6 +12,9 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.UMLPackage;
 
+/**
+ * Le um modelo *.uml
+ */
 public class Loader {
 	private EObject loader(String pathXML, String ext) throws IOException {
 

@@ -68,7 +68,7 @@ public class SpringROO {
 				for(Property prop: dom.getAtributos()){
 					if(prop.getType().getName().equals("Jogador")){
 						this.scriptRoo += "field set --fieldName " + prop.getName() + 
-							" --type ~.domain."+prop.getType().getName() + " --cardinality ONE_TO_MANY\n";
+							" --type ~.domain."+prop.getType().getName();
 					}
 					else{
 						this.scriptRoo += "field "+ prop.getType().getName().toLowerCase() + 
@@ -114,6 +114,11 @@ public class SpringROO {
 		}
 	}
 
+	public void configWebService(){
+		this.scriptRoo +="// CRIANDO WEB SERVICE\n";
+		this.scriptRoo +="json all\n";
+		this.scriptRoo +="web mvc json all\n\n";
+	}
 	public void configLog(){
 		this.scriptRoo += "// CONFIGURACAO DO LOG\n";
 		this.scriptRoo += "logging setup --level INFO\n\n";

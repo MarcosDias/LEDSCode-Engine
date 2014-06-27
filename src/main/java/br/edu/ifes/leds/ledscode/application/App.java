@@ -35,7 +35,8 @@ public class App {
 		roo.configEntidades(classes);
 		roo.criarTestIntegracao(classes);
 		roo.webMvcSetup("mvc");
-		roo.testSelenium(classes, "mvc");
+		//roo.testSelenium(classes, "mvc");
+		roo.configWebService();
 		roo.configLog();
 		roo.quit();
 		
@@ -46,6 +47,11 @@ public class App {
 
 	}
 	
+	/**
+	 * Retorna uma lista com os componetes do UML
+	 * @param model - Modelo UML
+	 * @param list - Lista que sera preenchida
+	 */
 	public static void getClassModel(Model model, List<ClassDom> list){
 		EList<Type> listaComponentes = model.getOwnedTypes();
 		

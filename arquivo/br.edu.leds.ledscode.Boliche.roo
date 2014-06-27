@@ -10,8 +10,7 @@ field string --fieldName nome --notNull --sizeMin 2 --sizeMax 100
 
 entity jpa --class ~.domain.Liga --activeRecord true --testAutomatically
 field string --fieldName nome --notNull --sizeMin 2 --sizeMax 100
-field set --fieldName jogadores --type ~.domain.Jogador --cardinality ONE_TO_MANY
-
+field set --fieldName jogadores --type ~.domain.Jogador
 // CRIANDO OS TESTES DE INTEGRACAO
 test integration --entity ~.domain.Jogador
 test integration --entity ~.domain.Liga
@@ -24,9 +23,9 @@ web mvc all --package ~.web
 web mvc language --code de
 web mvc language --code es
 
-// CRIANDO OS TESTES SELENIUM
-selenium test --controller ~.web.JogadorController
-selenium test --controller ~.web.LigaController
+// CRIANDO WEB SERVICE
+json all
+web mvc json all
 
 // CONFIGURACAO DO LOG
 logging setup --level INFO
