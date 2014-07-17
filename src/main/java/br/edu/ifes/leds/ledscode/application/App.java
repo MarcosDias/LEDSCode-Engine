@@ -5,69 +5,90 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
 
 import br.edu.ifes.leds.ledscode.loader.Loader;
-import br.edu.ifes.leds.ledscode.metaDominio.ClassDom;
+import br.edu.ifes.leds.ledscode.metaDominio.Dominio;
+import br.edu.ifes.leds.ledscode.metaDominio.grafo.Grafo;
+import br.edu.ifes.leds.ledscode.metaDominio.grafo.Node;
 import br.edu.ifes.leds.ledscode.springROO.SpringROO;
 
 public class App {
 
 	public static void main(String[] args) {
-		
-		Loader loader = new Loader();
-		List<ClassDom> classes = new ArrayList<ClassDom>();
+
 		SpringROO roo = new SpringROO();
-		
+		List<Dominio> classes = null;
+		List<Node> nodeDom = null;
+
 		try {
-			Model model = loader.load("model/Boliche.uml");
-			getClassModel(model, classes);
+			classes = getListDominio("model/Boliche/boliche.uml");
+			nodeDom = Grafo.dominioToNode(classes);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
+		/*
+		 * Passos para criar um projeto com o framework Spring Roo
+		 */
 		roo.criarProjeto("br.edu.leds.ledscode.Boliche");
 		roo.configBanco("HIBERNATE");
-		roo.configEntidades(classes);
-		roo.criarTestIntegracao(classes);
-		roo.webMvcSetup("mvc");
-		//roo.testSelenium(classes, "mvc");
+		roo.configEntidades(nodeDom);
+		roo.criarTestIntegracao(nodeDom);
+		roo.webSetup("mvc");
 		roo.configWebService();
 		roo.configLog();
 		roo.quit();
-		
+
 		roo.print('A');
 		roo.print('T');
-		
-		System.out.println("Aplicação finalizada!");
 
+		System.out.println("Aplicação finalizada!");
 	}
-	
+
 	/**
-	 * Retorna uma lista com os componetes do UML
-	 * @param model - Modelo UML
-	 * @param list - Lista que sera preenchida
+	 * Baseado em um modelo retorna seus componentes.
+	 * 
+	 * @return
+	 * @throws IOException
 	 */
-	public static void getClassModel(Model model, List<ClassDom> list){
+	public static List<Dominio> getListDominio(String modelo)
+			throws IOException {
+		Loader loader = new Loader();
+		Model model = loader.load(modelo);
+
+		return getListDominioToModel(model);
+	}
+
+	/**
+	 * Monta a lista com os componetes do UML
+	 * 
+	 * @param model
+	 *            - Modelo UML
+	 * @param list
+	 *            - Lista que sera preenchida
+	 * @return
+	 */
+	public static List<Dominio> getListDominioToModel(Model model) {
 		EList<Type> listaComponentes = model.getOwnedTypes();
-		
-		for (Type type:listaComponentes){
-			if (type instanceof org.eclipse.uml2.uml.Class){
-				ClassDom dom = new ClassDom();
-				
-				Class classx = (org.eclipse.uml2.uml.Class)type;
+		List<Dominio> listDominios = new ArrayList<Dominio>();
+
+		for (Type type : listaComponentes) {
+			if (type instanceof org.eclipse.uml2.uml.Class) {
+				Dominio dom = new Dominio();
+
+				org.eclipse.uml2.uml.Class classx = (org.eclipse.uml2.uml.Class) type;
 				EList<Property> atributos = classx.getAllAttributes();
-				
+
 				dom.setClassDom(classx);
 				dom.setAtributos(atributos);
-				
-				list.add(dom);
+
+				listDominios.add(dom);
 			}
 		}
+		return listDominios;
 	}
 
 }

@@ -1,34 +1,58 @@
 package br.edu.ifes.leds.ledscode.springROO;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
-import org.eclipse.uml2.uml.Property;
-
+import lombok.Getter;
+import lombok.Setter;
 import br.edu.ifes.leds.ledscode.arquivo.Arquivo;
-import br.edu.ifes.leds.ledscode.metaDominio.ClassDom;
+import br.edu.ifes.leds.ledscode.metaDominio.grafo.Node;
 
+@Getter
+@Setter
 public class SpringROO {
 	private String scriptRoo;
 	private String nomeProjeto;
-	
+
+	/**
+	 * Etapa inicial para criação do projeto
+	 * 
+	 * @param string
+	 *            - Nome do projeto que sera criado
+	 */
 	public void criarProjeto(String string) {
 		this.scriptRoo += "// CRIANDO O NOVO PROJETO\n";
 		this.scriptRoo += "project --topLevelPackage " + string + "\n\n";
 		this.nomeProjeto = string;
 	}
 
+	/**
+	 * Configuracoes do banco de dados
+	 * 
+	 * @param string
+	 *            - Define qual ORM sera usado
+	 */
 	public void configBanco(String string) {
 		this.scriptRoo += "// CONFIGURANDO O BANCO DE DADOS COM JPA\n";
-		this.scriptRoo += "jpa setup --provider " + string + " --database HYPERSONIC_IN_MEMORY\n\n";
+		this.scriptRoo += "jpa setup --provider " + string
+				+ " --database HYPERSONIC_IN_MEMORY\n\n";
 	}
 
+	/**
+	 * Joga o script do Spring Roo para uma saida, seja terminal ou arquivo
+	 * texto
+	 * 
+	 * @param saida
+	 *            - Tipo de saida: - T ~> Terminal - A ~> Arquivo
+	 */
 	public void print(char saida) {
 		switch (saida) {
 		case 'T':
 			System.out.println(this.scriptRoo);
 			break;
-			
+
 		case 'A':
 			try {
 				Arquivo arquivo = new Arquivo(this.nomeProjeto, ".roo");
@@ -43,100 +67,105 @@ public class SpringROO {
 		default:
 			break;
 		}
-		
+
 	}
-	
-	public void configEntidades(List<ClassDom> classes) {
+
+	/**
+	 * Cria as entidades que serao persistidas no banco de dados
+	 * 
+	 * @param listaEntidades
+	 *            - Lista de entidades ja mapeadas para os no do grafo
+	 */
+	public void configEntidades(List<Node> listaEntidades) {
 		this.scriptRoo += "// CRIANDO AS ENTIDADES DE DOMINIO\n";
-		
-		for(ClassDom dom: classes){
-			if(dom.getClassDom().getName().equals("Jogador")){
-				String className = dom.getClassDom().getName();
-				this.scriptRoo += "entity jpa --class ~.domain." + className + " --activeRecord true --testAutomatically\n";
-				
-				for(Property prop: dom.getAtributos()){
-					this.scriptRoo += "field "+ prop.getType().getName().toLowerCase() + " --fieldName "+ prop.getName() + " --notNull --sizeMin 2 --sizeMax 100";
-				}
-			}
-		}
-		this.scriptRoo += "\n\n";
-		for(ClassDom dom: classes){
-			if(!dom.getClassDom().getName().equals("Jogador")){
-				String className = dom.getClassDom().getName();
-				this.scriptRoo += "entity jpa --class ~.domain." + className + " --activeRecord true --testAutomatically\n";
-				
-				for(Property prop: dom.getAtributos()){
-					if(prop.getType().getName().equals("Jogador")){
-						this.scriptRoo += "field set --fieldName " + prop.getName() + 
-							" --type ~.domain."+prop.getType().getName();
-					}
-					else{
-						this.scriptRoo += "field "+ prop.getType().getName().toLowerCase() + 
-								" --fieldName "+ prop.getName() + " --notNull --sizeMin 2 --sizeMax 100\n";
-					}
-				}
+
+		for (Node nodeDom : listaEntidades) {
+			this.scriptRoo += "entity jpa --class ~.domain."
+					+ nodeDom.getNome()
+					+ " --activeRecord true --testAutomatically\n";
+			HashMap<String, String> prop = nodeDom.getPropriedades();
+			Set<String> chaves = prop.keySet();
+			for (String chave : chaves) {
+				String field = new String();
+				field = "field " + chave + " --fieldName "
+						+ prop.get(chave).toLowerCase() + " ";
+
+				if (TiposBasicos.temTraducao(prop.get(chave).toLowerCase()) == null)
+					field += "--type ~.domain." + prop.get(chave);
+
+				field += " --notNull"; //
+
+				if (chave.equals("int"))
+					field += " --sizeMin 2 --sizeMax 100\n";
+				else
+					field += "\n";
+
+				this.scriptRoo += field;
+
 			}
 		}
 		this.scriptRoo += "\n";
 	}
-	
-	public void criarTestIntegracao(List<ClassDom> classes) {
+
+	/**
+	 * Cria os testes de integração do sistema
+	 * 
+	 * @param nodeDom
+	 *            - Lista de entidades ja mapeadas para os no do grafo
+	 */
+	public void criarTestIntegracao(List<Node> nodeDom) {
 		this.scriptRoo += "// CRIANDO OS TESTES DE INTEGRACAO\n";
-		
-		for(ClassDom dom: classes){
-			this.scriptRoo+= "test integration --entity ~.domain." + dom.getClassDom().getName() +"\n";
+
+		for (Node dom : nodeDom) {
+			this.scriptRoo += "test integration --entity ~.domain."
+					+ dom.getNome() + "\n";
 		}
-		
+
 		this.scriptRoo += "\n";
 	}
-	
-	public void webMvcSetup(String tipoWeb) {
+
+	/**
+	 * Comando que gera toda a construcao da parte web
+	 * 
+	 * @param tipoWeb
+	 */
+	public void webSetup(String tipoWeb) {
 		this.scriptRoo += "// CRIANDO A PARTE WEB\n";
 		this.scriptRoo += "web " + tipoWeb + " setup\n";
-		this.scriptRoo += "web "+ tipoWeb +" all --package ~.web\n\n";
-		
-		if(tipoWeb.equals("mvc")){
+		this.scriptRoo += "web " + tipoWeb + " all --package ~.web\n\n";
+
+		if (tipoWeb.equals("mvc")) {
 			this.scriptRoo += "// INTERNACIONALIZACAO\n";
-			this.scriptRoo += "web "+ tipoWeb + " language --code de\n";
-			this.scriptRoo += "web "+ tipoWeb + " language --code es\n\n";
-		}
-	}
-	
-	public void testSelenium(List<ClassDom> classes, String tipoWeb){
-		if(tipoWeb.equals("mvc")){
-			this.scriptRoo += "// CRIANDO OS TESTES SELENIUM\n";
-			
-			for(ClassDom dom: classes){
-				this.scriptRoo+= "selenium test --controller ~.web." + dom.getClassDom().getName() +"Controller\n";
-			}
-			
-			this.scriptRoo += "\n";
+			this.scriptRoo += "web " + tipoWeb + " language --code de\n";
+			this.scriptRoo += "web " + tipoWeb + " language --code es\n\n";
 		}
 	}
 
-	public void configWebService(){
-		this.scriptRoo +="// CRIANDO WEB SERVICE\n";
-		this.scriptRoo +="json all\n";
-		this.scriptRoo +="web mvc json all\n\n";
+	/**
+	 * Configuracoes para criar um web service
+	 */
+	public void configWebService() {
+		this.scriptRoo += "// CRIANDO WEB SERVICE\n";
+		this.scriptRoo += "json all\n";
+		this.scriptRoo += "web mvc json all\n\n";
 	}
-	public void configLog(){
+
+	/**
+	 * Configuracoes do log do sistema
+	 */
+	public void configLog() {
 		this.scriptRoo += "// CONFIGURACAO DO LOG\n";
 		this.scriptRoo += "logging setup --level INFO\n\n";
 	}
-	
-	public void quit(){
+
+	/**
+	 * Comando de saida da tela do Spring roo
+	 */
+	public void quit() {
 		this.scriptRoo += "quit";
 	}
-	
+
 	public SpringROO() {
 		this.scriptRoo = "";
 	}
-	
-	public String getScriptRoo() {
-		return scriptRoo;
-	}
-	public void setScriptRoo(String scriptRoo) {
-		this.scriptRoo = scriptRoo;
-	}
-
 }

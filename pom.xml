@@ -3,4 +3,20 @@
   <groupId>br.edu.ifes.leds</groupId>
   <artifactId>ledscode</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  	<properties>
+   		 <!-- Codificacao -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+	
+	<!-- Lombok (gera getter and setters automaticamente) -->
+	<dependencies>
+		<dependency> 
+			<groupId>org.projectlombok</groupId> 
+	        <artifactId>lombok</artifactId> 
+	        <version>1.12.6</version> 
+	        <scope>provided</scope> 
+	    </dependency>
+    </dependencies>
 </project>
