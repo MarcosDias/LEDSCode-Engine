@@ -38,6 +38,7 @@ public class App {
 		roo.configEntidades(nodeDom);
 		roo.criarTestIntegracao(nodeDom);
 		roo.webSetup("mvc");
+		roo.metodosFinder(nodeDom);
 		roo.configWebService();
 		roo.configLog();
 		roo.quit();

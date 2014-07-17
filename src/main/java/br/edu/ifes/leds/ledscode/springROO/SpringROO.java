@@ -132,13 +132,33 @@ public class SpringROO {
 	public void webSetup(String tipoWeb) {
 		this.scriptRoo += "// CRIANDO A PARTE WEB\n";
 		this.scriptRoo += "web " + tipoWeb + " setup\n";
-		this.scriptRoo += "web " + tipoWeb + " all --package ~.web\n\n";
+		this.scriptRoo += "web " + tipoWeb + " all --package ~.web\n";
 
 		if (tipoWeb.equals("mvc")) {
+			this.scriptRoo += "web mvc finder all\n\n";
 			this.scriptRoo += "// INTERNACIONALIZACAO\n";
 			this.scriptRoo += "web " + tipoWeb + " language --code de\n";
 			this.scriptRoo += "web " + tipoWeb + " language --code es\n\n";
 		}
+
+		this.scriptRoo += "\n";
+	}
+
+	/**
+	 * Monta os metodos de busca (FINDER)
+	 * 
+	 * @param nodeDom
+	 *            - Lista de entidades ja mapeadas para os no do grafo
+	 */
+	public void metodosFinder(List<Node> nodeDom) {
+		// finder list --depth 2 --class ~.domain.Liga
+		this.scriptRoo += "// Metodos de busca (FINDER)\n";
+		for (Node node : nodeDom) {
+			this.scriptRoo += "finder list --depth 3 --class ~.domain."
+					+ node.getNome();
+			this.scriptRoo += "\n";
+		}
+		this.scriptRoo += "\n\n";
 	}
 
 	/**
