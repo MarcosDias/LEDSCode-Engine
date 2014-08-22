@@ -37,8 +37,8 @@ public class App {
 		roo.configBanco("HIBERNATE");
 		roo.configEntidades(nodeDom);
 		roo.criarTestIntegracao(nodeDom);
-		roo.webSetup("mvc");
 		roo.metodosFinder(nodeDom);
+		roo.webSetup("mvc");
 		roo.configWebService();
 		roo.configLog();
 		roo.quit();

@@ -154,7 +154,7 @@ public class SpringROO {
 		// finder list --depth 2 --class ~.domain.Liga
 		this.scriptRoo += "// Metodos de busca (FINDER)\n";
 		for (Node node : nodeDom) {
-			this.scriptRoo += "finder list --depth 3 --class ~.domain."
+			this.scriptRoo += "finder list --depth " + node.getPropriedades().size() + " --class ~.domain."
 					+ node.getNome();
 			this.scriptRoo += "\n";
 		}

@@ -15,6 +15,11 @@ field string --fieldName string  --notNull
 test integration --entity ~.domain.Jogador
 test integration --entity ~.domain.Liga
 
+// Metodos de busca (FINDER)
+finder list --depth 1 --class ~.domain.Jogador
+finder list --depth 2 --class ~.domain.Liga
+
+
 // CRIANDO A PARTE WEB
 web mvc setup
 web mvc all --package ~.web
@@ -23,11 +28,6 @@ web mvc finder all
 // INTERNACIONALIZACAO
 web mvc language --code de
 web mvc language --code es
-
-
-// Metodos de busca (FINDER)
-finder list --depth 3 --class ~.domain.Jogador
-finder list --depth 3 --class ~.domain.Liga
 
 
 // CRIANDO WEB SERVICE
