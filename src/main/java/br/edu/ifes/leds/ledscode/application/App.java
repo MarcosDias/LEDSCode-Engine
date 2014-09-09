@@ -3,25 +3,31 @@ package br.edu.ifes.leds.ledscode.application;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
 
+import br.edu.ifes.leds.ledscode.frameworks.forge.DbType;
+import br.edu.ifes.leds.ledscode.frameworks.forge.Forge;
+import br.edu.ifes.leds.ledscode.frameworks.springROO.SpringROO;
 import br.edu.ifes.leds.ledscode.loader.Loader;
 import br.edu.ifes.leds.ledscode.metaDominio.Dominio;
 import br.edu.ifes.leds.ledscode.metaDominio.grafo.Grafo;
 import br.edu.ifes.leds.ledscode.metaDominio.grafo.Node;
-import br.edu.ifes.leds.ledscode.springROO.SpringROO;
 
 public class App {
 
 	public static void main(String[] args) {
 
-		SpringROO roo = new SpringROO();
 		List<Dominio> classes = null;
 		List<Node> nodeDom = null;
+		
+		int opcao = 0;
+		boolean exec = true;
+		Scanner leitor = new Scanner (System.in);
 
 		try {
 			classes = getListDominio("model/Boliche/boliche.uml");
@@ -29,24 +35,73 @@ public class App {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		System.out.println("============== LEDSCode ================\n");
+		
+		do{
+			System.out.println("Digite a opção para framework.");
+			System.out.println("0 - Sair da Aplicação");
+			System.out.println("1 - Spring Roo");
+			System.out.println("2 - Forge");
+			System.out.println("\nOpção: ");
+			opcao = leitor.nextInt();
+			
+			switch (opcao) {
+				case 1:
+					/*
+					 * Passos para criar um projeto com o framework Spring Roo
+					 */
+					SpringROO roo = new SpringROO();
+					roo.criarProjeto("br.edu.leds.ledscode.Boliche");
+					roo.configBanco("HIBERNATE");
+					// TODO Enuns nao foram implementados 
+					roo.configEntidades(nodeDom);
+					roo.criarTestIntegracao(nodeDom);
+					roo.metodosFinder(nodeDom);
+					roo.webSetup("mvc");
+					roo.configWebService();
+					roo.configLog();
+					roo.quit();
 
-		/*
-		 * Passos para criar um projeto com o framework Spring Roo
-		 */
-		roo.criarProjeto("br.edu.leds.ledscode.Boliche");
-		roo.configBanco("HIBERNATE");
-		roo.configEntidades(nodeDom);
-		roo.criarTestIntegracao(nodeDom);
-		roo.metodosFinder(nodeDom);
-		roo.webSetup("mvc");
-		roo.configWebService();
-		roo.configLog();
-		roo.quit();
-
-		roo.print('A');
-		roo.print('T');
-
-		System.out.println("Aplicação finalizada!");
+					roo.print(SpringROO.ARQUIVO, SpringROO.EXTENSAO);
+					roo.print(SpringROO.TERMINAL, null);
+					
+					exec = false;
+					
+					break;
+					
+				case 2:
+					//http://forge.jboss.org/document/write-a-java-ee-web-application-advanced
+					//http://forge.jboss.org/document/write-a-java-ee-web-application-basic
+					//http://forge.jboss.org/document/write-a-java-ee-rest-application-basic
+					Forge forge = new Forge();
+					forge.criarProjeto("boliche", "br.edu.leds.ledscode");
+					forge.configBanco("HIBERNATE", DbType.HSQLDB_IN_MEMORY);
+					// TODO Enuns nao foram implementados 
+					forge.configEntidades(nodeDom);
+					forge.gerarInterfaceWeb();
+					forge.configRest();
+					forge.build();
+					forge.exit();
+					
+					forge.print(Forge.ARQUIVO, Forge.EXTENSAO);
+					forge.print(Forge.TERMINAL, null);
+					
+					exec = false;
+					break;
+					
+				case 0:
+					exec = false;
+					break;
+		
+				default:
+					exec = true;
+					break;
+			}
+		}
+		while(exec);
+		
+		System.out.println("Aplicação finalizada!");		
 	}
 
 	/**

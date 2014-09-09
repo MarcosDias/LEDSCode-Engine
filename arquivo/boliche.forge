@@ -1,0 +1,25 @@
+project-new --named boliche --type war--targetLocation br.edu.leds.ledscode
+jpa-setup --provider HIBERNATE --dbType HSQLDB_IN_MEMORY
+
+jpa-new-entity --named Jogador
+jpa-new-field --named idade --type int
+constraint-add --constraint NotNull --onProperty idade
+jpa-new-field --named nome --type String
+constraint-add --constraint NotNull --onProperty nome
+jpa-new-entity --named Liga
+jpa-new-field --named nome --type String
+constraint-add --constraint NotNull --onProperty nome
+jpa-new-field --named jogadores --type org.boliche.model.Jogador --relationshipType One-to-Many
+constraint-add --constraint NotNull --onProperty jogadores
+
+faces-setup --facesVersion 2.2
+scaffold-setup
+scaffold-generate --targets org.boliche.model.*
+
+rest-setup
+rest-generate-endpoints-from-entities --targets org.boliche.model.* --contentType application/xml
+
+build
+
+quit
+

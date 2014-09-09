@@ -6,7 +6,6 @@ import java.util.List;
 import org.eclipse.uml2.uml.Property;
 
 import br.edu.ifes.leds.ledscode.metaDominio.Dominio;
-import br.edu.ifes.leds.ledscode.springROO.TiposBasicos;
 
 public class Grafo {
 	/**
@@ -75,16 +74,14 @@ public class Grafo {
 					.getName());
 
 			for (Property prop : domClass.getAtributos()) {
-				String traducao = TiposBasicos.temTraducao(prop.getType()
-						.getName().toLowerCase());
-				if (traducao != null) {
-					node.getPropriedades().put(traducao,
-							prop.getType().getName());
-				} else {
+				node.getPropriedades().put(prop.getLabel(),
+						prop.getType().getName());
+				if (!prop.getType().eClass().getName().toString()
+						.equals("PrimitiveType")) {
+					
 					Node nodeAdj = Grafo.getNode(nodeGrafo, prop.getType()
 							.getName());
 					node.getAdjacentes().add(nodeAdj);
-					node.getPropriedades().put("set", nodeAdj.getNome());
 				}
 			}
 		}

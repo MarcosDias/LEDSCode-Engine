@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_jUnV4PMmEeO_9Obay6Y0kw" name="Boliche">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_jUnV4PMmEeO_9Obay6Y0kw" name="Boliche">
   <packagedElement xmi:type="uml:Class" xmi:id="_Balq8PMnEeO_9Obay6Y0kw" name="Liga">
     <ownedAttribute xmi:id="_Dlbx4PMnEeO_9Obay6Y0kw" name="nome" type="_EzB9sPqLEeONOMcR3e9FVQ"/>
     <ownedAttribute xmi:id="_IQgZ4PMnEeO_9Obay6Y0kw" name="jogadores" type="_nSfgsPMmEeO_9Obay6Y0kw" isOrdered="true">
@@ -10,5 +10,7 @@
   <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_EzB9sPqLEeONOMcR3e9FVQ" name="String"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_nSfgsPMmEeO_9Obay6Y0kw" name="Jogador">
     <ownedAttribute xmi:id="_tqGjAPMmEeO_9Obay6Y0kw" name="nome" type="_EzB9sPqLEeONOMcR3e9FVQ"/>
+    <ownedAttribute xmi:id="_nbdd0C_fEeS7g-eBA4DQ9w" name="idade" type="_kM3a4S_fEeS7g-eBA4DQ9w"/>
   </packagedElement>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_kM3a4S_fEeS7g-eBA4DQ9w" name="int"/>
 </uml:Model>

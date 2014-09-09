@@ -6,17 +6,18 @@ jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY
 
 // CRIANDO AS ENTIDADES DE DOMINIO
 entity jpa --class ~.domain.Jogador --activeRecord true --testAutomatically
-field string --fieldName string  --notNull
+field int --fieldName idade  --notNull
+field string --fieldName nome  --notNull
 entity jpa --class ~.domain.Liga --activeRecord true --testAutomatically
-field set --fieldName jogador --type ~.domain.Jogador --notNull
-field string --fieldName string  --notNull
+field string --fieldName nome  --notNull
+field jogador --fieldName jogadores --type ~.domain.Jogador --notNull
 
 // CRIANDO OS TESTES DE INTEGRACAO
 test integration --entity ~.domain.Jogador
 test integration --entity ~.domain.Liga
 
 // Metodos de busca (FINDER)
-finder list --depth 1 --class ~.domain.Jogador
+finder list --depth 2 --class ~.domain.Jogador
 finder list --depth 2 --class ~.domain.Liga
 
 

@@ -1,14 +1,14 @@
-package br.edu.ifes.leds.ledscode.springROO;
+package br.edu.ifes.leds.ledscode.frameworks.springROO;
 
 import lombok.Getter;
 
+
 /**
- * Tipo EMBEDDED, LIST e OTHER ainda nao implementados.
- * 
  * @author marcosdias
  */
+// TODO Tipo EMBEDDED, LIST e OTHER ainda nao implementados.
 @Getter
-public enum TiposBasicos {
+public enum TiposBasicosRoo {
 	BOOLEAN("boolean"), 
 	DATE("date"),
 	// EMBEDDED,
@@ -23,7 +23,7 @@ public enum TiposBasicos {
 
 	private final String nome;
 
-	private TiposBasicos(String nome) {
+	private TiposBasicosRoo(String nome) {
 		this.nome = nome;
 	}
 
@@ -34,7 +34,7 @@ public enum TiposBasicos {
 	 * @return
 	 */
 	public static String temTraducao(String tipo) {
-		for (TiposBasicos basico : TiposBasicos.values()) {
+		for (TiposBasicosRoo basico : TiposBasicosRoo.values()) {
 			if (basico.getNome().equals(tipo)
 					&& !basico.getNome().equals("enum")) {
 				return basico.getNome();
