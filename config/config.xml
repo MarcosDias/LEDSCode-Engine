@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projeto>
+	<diagramas filho="diagrama">
+		<diagrama nome="Diagrama de Classes"></diagrama>
+	</diagramas>
+	<linguagens filho ="linguagem">
+		<linguagem nome="Java">
+			<frameworks filho="framework">
+				<framework nome="Spring Roo">
+					<arquiteturas filho="arquitetura">
+						<arquitetura>MVC</arquitetura>
+					</arquiteturas>
+
+					<bancodados filho="bancodados">
+						<bancodado nome="DATABASE_DOT_COM"></bancodado>
+						<bancodado nome="DB2_400"></bancodado>
+						<bancodado nome="DB2_EXPRESS_C"></bancodado>
+						<bancodado nome="DERBY_CLIENT"></bancodado>
+						<bancodado nome="DERBY_EMBEDDED"></bancodado>
+						<bancodado nome="FIREBIRD"></bancodado>
+						<bancodado nome="GOOGLE_APP_ENGINE"></bancodado>
+						<bancodado nome="H2_IN_MEMORY"></bancodado>
+						<bancodado nome="HYPERSONIC_IN_MEMORY"></bancodado>
+						<bancodado nome="HYPERSONIC_PERSISTENT"></bancodado>
+						<bancodado nome="MSSQL"></bancodado>
+						<bancodado nome="MYSQL"></bancodado>
+						<bancodado nome="ORACLE"></bancodado>
+						<bancodado nome="POSTGRES"></bancodado>
+						<bancodado nome="SYBASE"></bancodado>
+					</bancodados>
+
+					<orms filho="orm">
+						<orm nome="DATANUCLEUS"></orm>
+						<orm nome="ECLIPSELINK"></orm>
+						<orm nome="HIBERNATE"></orm>
+						<orm nome="OPENJPA"></orm>
+					</orms>
+				</framework>
+				<framework nome="Forge2">
+					<arquiteturas filho="arquitetura">
+						<arquitetura nome="MVC"></arquitetura>
+					</arquiteturas>
+
+					<bancodados filho="bancodados">
+						<bancodado nome="MYSQL"></bancodado>
+						<bancodado nome="MYSQL5_INNODB"></bancodado>
+						<bancodado nome="SQL_SERVER"></bancodado>
+						<bancodado nome="INTERBASE"></bancodado>
+						<bancodado nome="ORACLE"></bancodado>
+						<bancodado nome="MYSQL_INNODB"></bancodado>
+						<bancodado nome="SAP_DB"></bancodado>
+						<bancodado nome="POINTBASE"></bancodado>
+						<bancodado nome="DERBY"></bancodado>
+						<bancodado nome="MYSQL5_ISAM"></bancodado>
+						<bancodado nome="INFORMIX"></bancodado>
+						<bancodado nome="FRONTBASE"></bancodado>
+						<bancodado nome="DB2"></bancodado>
+						<bancodado nome="MYSQL_ISAM"></bancodado>
+						<bancodado nome="HSQLDB"></bancodado>
+						<bancodado nome="FIREBIRD"></bancodado>
+						<bancodado nome="POSTGRES"></bancodado>
+						<bancodado nome="ORACLE_9I"></bancodado>
+						<bancodado nome="H2"></bancodado>
+						<bancodado nome="HSQLDB_IN_MEMORY"></bancodado>
+						<bancodado nome="DEFAULT"></bancodado>
+						<bancodado nome="ORACLE_10G"></bancodado>
+						<bancodado nome="INGRES"></bancodado>
+						<bancodado nome="ORACLE_11G"></bancodado>
+						<bancodado nome="DB2_AS400"></bancodado>
+						<bancodado nome="SYBASE"></bancodado>
+						<bancodado nome="PROGRESS"></bancodado>
+						<bancodado nome="ACCESS"></bancodado>
+						<bancodado nome="DB2_OS390"></bancodado>
+						<bancodado nome="SYBASE_ANYWHERE"></bancodado>
+						<bancodado nome="MCKOI"></bancodado>
+					</bancodados>
+
+					<orms filho="orm">
+						<orm nome="Java EE"></orm>
+						<orm nome="OpenJPA"></orm>
+						<orm nome="Eclipse Link"></orm>
+						<orm nome="Infinispan"></orm>
+						<orm nome="Hibernate"></orm>
+					</orms>
+				</framework>
+			</frameworks>
+		</linguagem>
+	</linguagens>
+</projeto>
