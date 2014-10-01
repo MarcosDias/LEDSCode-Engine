@@ -1,9 +1,9 @@
 package br.edu.ifes.leds.ledscode.loader;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -13,10 +13,13 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
+import org.eclipse.emf.ecore.xml.type.impl.AnyTypeImpl;
 import org.eclipse.emf.mapping.ecore2ecore.Ecore2EcorePackage;
 import org.eclipse.emf.mapping.ecore2xml.Ecore2XMLPackage;
 import org.eclipse.emf.mapping.ecore2xml.util.Ecore2XMLResource;
 import org.eclipse.uml2.uml.Model;
+import org.eclipse.uml2.uml.NamedElement;
+import org.eclipse.uml2.uml.ProfileApplication;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.resource.UML22UMLResource;
 import org.eclipse.uml2.uml.resource.UMLResource;
@@ -38,7 +41,7 @@ public class Loader {
 	 */
 	private EObject loader(String pathXML, String ext) throws IOException {
 
-		// OLD NÃO FUNCIONA
+		// OLD - NÃO FUNCIONA
 		// UMLPackage.eINSTANCE.eClass();
 		// Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 		// Map<String, Object> m = reg.getExtensionToFactoryMap();
@@ -121,10 +124,8 @@ public class Loader {
 				.appendSegment("metamodels").appendSegment(""));
 		uriMap.put(URI.createURI(UMLResource.PROFILES_PATHMAP), uri
 				.appendSegment("profiles").appendSegment(""));
-		
-		resourceSet.getURIConverter().getURIMap().put(URI.createURI("pathmap://Papyrus_PROFILES/model.profile.uml"), URI.createFileURI(new File("model/configuracao/model.profile.uml").getAbsolutePath()));
 
-		//resource = resourceSet.getResource(URI.createFileURI("model/configuracao/model.profile.uml"), true);
+		resource = resourceSet.getResource(URI.createFileURI("model/configuracao/model.profile.uml"), true);
 		resource = resourceSet.getResource(URI.createFileURI(pathXML), true);
 
 		EcoreUtil.resolveAll(resourceSet);

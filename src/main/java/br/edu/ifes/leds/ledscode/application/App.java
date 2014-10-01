@@ -160,17 +160,11 @@ public class App {
 
 				org.eclipse.uml2.uml.Class classx = (org.eclipse.uml2.uml.Class) type;
 				EList<Property> atributos = classx.getAllAttributes();
-				EList<Stereotype> esteriotipos = classx.getAppliedStereotypes();
+				EList<Stereotype> esteriotipos = classx.getApplicableStereotypes();
 
 				dom.setClassDom(classx);
 				dom.setAtributos(atributos);
 				dom.setEsteriotipos(esteriotipos);
-				
-				for(Stereotype ster: classx.getApplicableStereotypes()){
-					System.out.println(ster.getName().toString());
-					System.out.println(ster.getLabel().toString());
-					System.out.println(ster.getKeyword().toString());
-				}
 
 				listDominios.add(dom);
 			}
