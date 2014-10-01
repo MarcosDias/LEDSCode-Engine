@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:css="http://www.eclipse.org/papyrus/infra/gmfdiag/css" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <notation:Diagram xmi:id="_G9F7cETPEeSAnIBjXI5URg" type="PapyrusUMLClassDiagram" name="diagram" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_HqyH4ETPEeSAnIBjXI5URg" type="2008">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_XFQ44ETPEeSAnIBjXI5URg" source="Stereotype_Annotation">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vd6CQETQEeSAnIBjXI5URg" key="StereotypeWithQualifiedNameList" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vd6pUETQEeSAnIBjXI5URg" key="StereotypeList" value=",Profile::View,Profile::Entity"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vd6pUUTQEeSAnIBjXI5URg" key="Stereotype_Presentation_Kind" value="HorizontalStereo"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vd6pUkTQEeSAnIBjXI5URg" key="PropStereoDisplay" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vd6pU0TQEeSAnIBjXI5URg" key="StereotypePropertyLocation" value="Compartment"/>
+      </eAnnotations>
+      <children xmi:type="notation:DecorationNode" xmi:id="_Hqyu8ETPEeSAnIBjXI5URg" type="5029"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_Hqyu8UTPEeSAnIBjXI5URg" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_JL6jcETPEeSAnIBjXI5URg" type="3012">
+          <element xmi:type="uml:Property" href="biblio.uml#_JLqr0ETPEeSAnIBjXI5URg"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_JL6jcUTPEeSAnIBjXI5URg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_MzTg4ETPEeSAnIBjXI5URg" type="3012">
+          <element xmi:type="uml:Property" href="biblio.uml#_MzOoYETPEeSAnIBjXI5URg"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_MzTg4UTPEeSAnIBjXI5URg"/>
+        </children>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_Hqyu8kTPEeSAnIBjXI5URg"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_Hqyu80TPEeSAnIBjXI5URg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_Hqyu9ETPEeSAnIBjXI5URg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Hqyu9UTPEeSAnIBjXI5URg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_Hqyu9kTPEeSAnIBjXI5URg" type="7018">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_Hqyu90TPEeSAnIBjXI5URg"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_Hqyu-ETPEeSAnIBjXI5URg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_Hqyu-UTPEeSAnIBjXI5URg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Hqyu-kTPEeSAnIBjXI5URg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_Hqyu-0TPEeSAnIBjXI5URg" type="7019">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_Hqyu_ETPEeSAnIBjXI5URg"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_Hqyu_UTPEeSAnIBjXI5URg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_Hqyu_kTPEeSAnIBjXI5URg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Hqyu_0TPEeSAnIBjXI5URg"/>
+      </children>
+      <element xmi:type="uml:Class" href="biblio.uml#_Hqnv0ETPEeSAnIBjXI5URg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HqyH4UTPEeSAnIBjXI5URg" x="219" y="83"/>
+    </children>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_G9F7cUTPEeSAnIBjXI5URg" name="diagram_compatibility_version" stringValue="1.0.0"/>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_G9F7ckTPEeSAnIBjXI5URg"/>
+    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_G9F7c0TPEeSAnIBjXI5URg">
+      <owner xmi:type="uml:Model" href="biblio.uml#_G8RcEETPEeSAnIBjXI5URg"/>
+    </styles>
+    <element xmi:type="uml:Model" href="biblio.uml#_G8RcEETPEeSAnIBjXI5URg"/>
+  </notation:Diagram>
+  <css:ModelStyleSheets xmi:id="_COAqUEj6EeS30LmiTrApeA"/>
+</xmi:XMI>

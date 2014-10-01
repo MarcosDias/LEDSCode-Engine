@@ -10,7 +10,10 @@ import java.util.Scanner;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.uml2.uml.Model;
+import org.eclipse.uml2.uml.Profile;
+import org.eclipse.uml2.uml.ProfileApplication;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.Type;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -38,7 +41,7 @@ public class App {
 		boolean exec = true;
 
 		try {
-			classes = getListDominio("model/Boliche/boliche.uml");
+			classes = getListDominio("model/Biblioteca/biblio.uml");
 			nodeDom = Grafo.dominioToNode(classes);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -130,6 +133,7 @@ public class App {
 	public static List<Dominio> getListDominio(String modelo)
 			throws IOException {
 		Loader loader = new Loader();
+
 		Model model = loader.load(modelo);
 
 		return getListDominioToModel(model);
@@ -146,6 +150,8 @@ public class App {
 	 */
 	public static List<Dominio> getListDominioToModel(Model model) {
 		EList<Type> listaComponentes = model.getOwnedTypes();
+		EList<Profile> profile1 = model.getAllAppliedProfiles();
+		EList<ProfileApplication> profile2 = model.getAllProfileApplications();
 		List<Dominio> listDominios = new ArrayList<Dominio>();
 
 		for (Type type : listaComponentes) {
@@ -154,9 +160,17 @@ public class App {
 
 				org.eclipse.uml2.uml.Class classx = (org.eclipse.uml2.uml.Class) type;
 				EList<Property> atributos = classx.getAllAttributes();
+				EList<Stereotype> esteriotipos = classx.getAppliedStereotypes();
 
 				dom.setClassDom(classx);
 				dom.setAtributos(atributos);
+				dom.setEsteriotipos(esteriotipos);
+				
+				for(Stereotype ster: classx.getApplicableStereotypes()){
+					System.out.println(ster.getName().toString());
+					System.out.println(ster.getLabel().toString());
+					System.out.println(ster.getKeyword().toString());
+				}
 
 				listDominios.add(dom);
 			}

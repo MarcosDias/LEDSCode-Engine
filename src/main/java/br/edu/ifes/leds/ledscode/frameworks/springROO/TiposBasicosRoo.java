@@ -2,7 +2,6 @@ package br.edu.ifes.leds.ledscode.frameworks.springROO;
 
 import lombok.Getter;
 
-
 /**
  * @author marcosdias
  */

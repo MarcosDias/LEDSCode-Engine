@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_jUnV4PMmEeO_9Obay6Y0kw" name="Boliche">
-  <packagedElement xmi:type="uml:Class" xmi:id="_Balq8PMnEeO_9Obay6Y0kw" name="Liga">
-    <ownedAttribute xmi:id="_Dlbx4PMnEeO_9Obay6Y0kw" name="nome" type="_EzB9sPqLEeONOMcR3e9FVQ"/>
-    <ownedAttribute xmi:id="_IQgZ4PMnEeO_9Obay6Y0kw" name="jogadores" type="_nSfgsPMmEeO_9Obay6Y0kw" isOrdered="true">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ma9BEPMnEeO_9Obay6Y0kw"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MxMW0PMnEeO_9Obay6Y0kw" value="*"/>
-    </ownedAttribute>
-  </packagedElement>
-  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_EzB9sPqLEeONOMcR3e9FVQ" name="String"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_nSfgsPMmEeO_9Obay6Y0kw" name="Jogador">
-    <ownedAttribute xmi:id="_tqGjAPMmEeO_9Obay6Y0kw" name="nome" type="_EzB9sPqLEeONOMcR3e9FVQ"/>
-    <ownedAttribute xmi:id="_nbdd0C_fEeS7g-eBA4DQ9w" name="idade" type="_kM3a4S_fEeS7g-eBA4DQ9w"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_kM3a4S_fEeS7g-eBA4DQ9w" name="int"/>
-</uml:Model>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Profile="br.edu.ifes.leds.ledscode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="br.edu.ifes.leds.ledscode ../configuracao/model.profile.uml#_PAqQsEjqEeS30LmiTrApeA">
+  <uml:Model xmi:id="_jkSHQEUwEeS0Ar4mlReWTw" name="Model">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_jkSHQUUwEeS0Ar4mlReWTw">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_u0PYkEUwEeS0Ar4mlReWTw" name="Jogador">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2xBB4EUwEeS0Ar4mlReWTw" name="nome" visibility="private" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_8g-1YEUwEeS0Ar4mlReWTw" name="Liga">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QgFoIEUxEeS0Ar4mlReWTw" name="nome" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d5bAwEUxEeS0Ar4mlReWTw" name="jogadores" visibility="private" type="_u0PYkEUwEeS0Ar4mlReWTw" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hyVzEEUxEeS0Ar4mlReWTw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hyYPUEUxEeS0Ar4mlReWTw" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_tpVEoEUwEeS0Ar4mlReWTw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9pIJ4Ej5EeS30LmiTrApeA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9pIJ4Uj5EeS30LmiTrApeA" key="Version" value="0.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9pIJ4kj5EeS30LmiTrApeA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9pIJ40j5EeS30LmiTrApeA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9pIJ5Ej5EeS30LmiTrApeA" key="Date" value="2014-09-30"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9pIJ5Uj5EeS30LmiTrApeA" key="Author" value="marcos.a.melo.dias@gmail.com"/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tqJkAEUwEeS0Ar4mlReWTw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="../configuracao/model.profile.uml#_PAqQsEjqEeS30LmiTrApeA"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="../configuracao/model.profile.uml#_1GY8gEQGEeS0KOUYfWFZkQ"/>
+    </profileApplication>
+  </uml:Model>
+  <Profile:Entity xmi:id="_y3wRUEUwEeS0Ar4mlReWTw" base_Class="_u0PYkEUwEeS0Ar4mlReWTw"/>
+  <Profile:View xmi:id="_y4AwAEUwEeS0Ar4mlReWTw" base_Class="_u0PYkEUwEeS0Ar4mlReWTw"/>
+  <Profile:Entity xmi:id="_OWxLMEUxEeS0Ar4mlReWTw" base_Class="_8g-1YEUwEeS0Ar4mlReWTw"/>
+  <Profile:View xmi:id="_OW_NoEUxEeS0Ar4mlReWTw" base_Class="_8g-1YEUwEeS0Ar4mlReWTw"/>
+</xmi:XMI>
