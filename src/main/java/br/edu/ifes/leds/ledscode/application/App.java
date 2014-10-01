@@ -150,8 +150,6 @@ public class App {
 	 */
 	public static List<Dominio> getListDominioToModel(Model model) {
 		EList<Type> listaComponentes = model.getOwnedTypes();
-		EList<Profile> profile1 = model.getAllAppliedProfiles();
-		EList<ProfileApplication> profile2 = model.getAllProfileApplications();
 		List<Dominio> listDominios = new ArrayList<Dominio>();
 
 		for (Type type : listaComponentes) {
