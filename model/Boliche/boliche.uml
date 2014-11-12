@@ -1,39 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Profile="br.edu.ifes.leds.ledscode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="br.edu.ifes.leds.ledscode ../configuracao/model.profile.uml#_PAqQsEjqEeS30LmiTrApeA">
-  <uml:Model xmi:id="_jkSHQEUwEeS0Ar4mlReWTw" name="Model">
-    <packageImport xmi:type="uml:PackageImport" xmi:id="_jkSHQUUwEeS0Ar4mlReWTw">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ActionLanguage="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_sYse0YZLEeKyw49uR6nx3g">
+  <uml:Model xmi:id="_0ofW0E__EeSrtMj0Dui3ug" name="Model">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_0ofW0U__EeSrtMj0Dui3ug">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
     </packageImport>
-    <packagedElement xmi:type="uml:Class" xmi:id="_u0PYkEUwEeS0Ar4mlReWTw" name="Jogador">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_2xBB4EUwEeS0Ar4mlReWTw" name="nome" visibility="private" isUnique="false">
+    <packagedElement xmi:type="uml:Class" xmi:id="_2iK1QE__EeSrtMj0Dui3ug" name="@Entity @View Jogador">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_eXaE8FAAEeSrtMj0Dui3ug" name="@Min(18) @Max(100) @NotNull idade" visibility="private" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hx9q0FABEeSrtMj0Dui3ug" name="@NotNull @Min(3) @Max(50) nome" visibility="private" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_8g-1YEUwEeS0Ar4mlReWTw" name="Liga">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_QgFoIEUxEeS0Ar4mlReWTw" name="nome" visibility="private">
+    <packagedElement xmi:type="uml:Class" xmi:id="_CXSzsFABEeSrtMj0Dui3ug" name="@View @Entity Liga">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_LBpUsFABEeSrtMj0Dui3ug" name="@NotNull nome" visibility="private" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_d5bAwEUxEeS0Ar4mlReWTw" name="jogadores" visibility="private" type="_u0PYkEUwEeS0Ar4mlReWTw" isUnique="false">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hyVzEEUxEeS0Ar4mlReWTw"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hyYPUEUxEeS0Ar4mlReWTw" value="*"/>
-      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QZb4wFABEeSrtMj0Dui3ug" name="jogadores" visibility="private" type="_2iK1QE__EeSrtMj0Dui3ug" isUnique="false"/>
     </packagedElement>
-    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_tpVEoEUwEeS0Ar4mlReWTw">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9pIJ4Ej5EeS30LmiTrApeA" source="PapyrusVersion">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9pIJ4Uj5EeS30LmiTrApeA" key="Version" value="0.0.5"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9pIJ4kj5EeS30LmiTrApeA" key="Comment" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9pIJ40j5EeS30LmiTrApeA" key="Copyright" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9pIJ5Ej5EeS30LmiTrApeA" key="Date" value="2014-09-30"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9pIJ5Uj5EeS30LmiTrApeA" key="Author" value="marcos.a.melo.dias@gmail.com"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_C3aToFAAEeSrtMj0Dui3ug">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_C35b0FAAEeSrtMj0Dui3ug" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_sYse0YZLEeKyw49uR6nx3g"/>
       </eAnnotations>
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tqJkAEUwEeS0Ar4mlReWTw" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="../configuracao/model.profile.uml#_PAqQsEjqEeS30LmiTrApeA"/>
-      </eAnnotations>
-      <appliedProfile xmi:type="uml:Profile" href="../configuracao/model.profile.uml#_1GY8gEQGEeS0KOUYfWFZkQ"/>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
     </profileApplication>
   </uml:Model>
-  <Profile:Entity xmi:id="_y3wRUEUwEeS0Ar4mlReWTw" base_Class="_u0PYkEUwEeS0Ar4mlReWTw"/>
-  <Profile:View xmi:id="_y4AwAEUwEeS0Ar4mlReWTw" base_Class="_u0PYkEUwEeS0Ar4mlReWTw"/>
-  <Profile:Entity xmi:id="_OWxLMEUxEeS0Ar4mlReWTw" base_Class="_8g-1YEUwEeS0Ar4mlReWTw"/>
-  <Profile:View xmi:id="_OW_NoEUxEeS0Ar4mlReWTw" base_Class="_8g-1YEUwEeS0Ar4mlReWTw"/>
+  <ActionLanguage:TextualRepresentation xmi:id="_C-jdcFAAEeSrtMj0Dui3ug" language="org.eclipse.papyrus.uml.textedit.property.xtext.UmlProperty"/>
 </xmi:XMI>

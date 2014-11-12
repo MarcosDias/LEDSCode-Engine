@@ -2,6 +2,7 @@ package br.edu.ifes.leds.ledscode.frameworks.springROO;
 
 import lombok.Getter;
 
+
 /**
  * @author marcosdias
  */
@@ -14,7 +15,7 @@ public enum TiposBasicosRoo {
 	ENUM("enum"),
 	// FILE("file"),
 	// LIST,
-	NUMBER_INT("int"), NUMBER_DOUBLE("double"), NUMBER_FLOAT("float"),
+	NUMBER_INT("number"), NUMBER_DOUBLE("number"), NUMBER_FLOAT("number"),
 	// OTHER,
 	STRING("string");
 	// REFERENCE(""),

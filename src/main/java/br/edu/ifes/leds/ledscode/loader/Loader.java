@@ -3,55 +3,42 @@ package br.edu.ifes.leds.ledscode.loader;
 import java.io.IOException;
 import java.util.Map;
 
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
-import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
-import org.eclipse.emf.ecore.xml.type.impl.AnyTypeImpl;
-import org.eclipse.emf.mapping.ecore2ecore.Ecore2EcorePackage;
-import org.eclipse.emf.mapping.ecore2xml.Ecore2XMLPackage;
-import org.eclipse.emf.mapping.ecore2xml.util.Ecore2XMLResource;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.uml2.uml.Model;
-import org.eclipse.uml2.uml.NamedElement;
-import org.eclipse.uml2.uml.ProfileApplication;
 import org.eclipse.uml2.uml.UMLPackage;
-import org.eclipse.uml2.uml.resource.UML22UMLResource;
-import org.eclipse.uml2.uml.resource.UMLResource;
 
 /**
  * Le um modelo *.uml
  */
 public class Loader {
-	/**
-	 * Converte o arquivo *.uml em um modelo
-	 * 
-	 * CODIGO ADAPTADO DO LINK:
-	 * http://www.eclipse.org/forums/index.php/t/353225/
-	 * 
-	 * @param pathXML - Caminho do arquivo
-	 * @param ext - Extensão do Arquivo
-	 * @return
-	 * @throws IOException
-	 */
-	private EObject loader(String pathXML, String ext) throws IOException {
+    /**
+     * Converte o arquivo *.uml em um modelo
+     * <p/>
+     * CODIGO ADAPTADO DO LINK:
+     * http://www.eclipse.org/forums/index.php/t/353225/
+     *
+     * @param pathXML - Caminho do arquivo
+     * @param ext     - Extensão do Arquivo
+     * @return
+     * @throws IOException
+     */
+    private EObject loader(String pathXML, String ext) throws IOException {
 
-		// OLD - NÃO FUNCIONA
-		// UMLPackage.eINSTANCE.eClass();
-		// Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-		// Map<String, Object> m = reg.getExtensionToFactoryMap();
-		// m.put(ext, new XMIResourceFactoryImpl());
-		// ResourceSet resSet = new ResourceSetImpl();
-		// Resource resource = resSet.getResource(URI.createURI(pathXML), true);
-		// return resource.getContents().get(0);
+        UMLPackage.eINSTANCE.eClass();
+        Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+        Map<String, Object> m = reg.getExtensionToFactoryMap();
+        m.put(ext, new XMIResourceFactoryImpl());
+        ResourceSet resSet = new ResourceSetImpl();
+        Resource resource = resSet.getResource(URI.createURI(pathXML), true);
+        return resource.getContents().get(0);
 
-		//http://www.eclipse.org/forums/index.php/t/354631/
-		Resource resource = null;
+        //http://www.eclipse.org/forums/index.php/t/354631/
+        /*Resource resource = null;
 
 		ResourceSet resourceSet = new ResourceSetImpl();
 
@@ -162,13 +149,13 @@ public class Loader {
 			}
 
 			System.out.println(type_1.toString());
-		}*/
+		}
 
-		return resource.getContents().get(0);
-	}
+		return resource.getContents().get(0); */
+    }
 
-	public Model load(String modelPath) throws IOException {
+    public Model load(String modelPath) throws IOException {
 
-		return (Model) this.loader(modelPath, "uml");
-	}
+        return (Model) this.loader(modelPath, "uml");
+    }
 }

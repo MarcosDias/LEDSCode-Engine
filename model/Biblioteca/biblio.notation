@@ -3,11 +3,11 @@
   <notation:Diagram xmi:id="_G9F7cETPEeSAnIBjXI5URg" type="PapyrusUMLClassDiagram" name="diagram" measurementUnit="Pixel">
     <children xmi:type="notation:Shape" xmi:id="_HqyH4ETPEeSAnIBjXI5URg" type="2008">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_XFQ44ETPEeSAnIBjXI5URg" source="Stereotype_Annotation">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vd6CQETQEeSAnIBjXI5URg" key="StereotypeWithQualifiedNameList" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vd6pUETQEeSAnIBjXI5URg" key="StereotypeList" value=",Profile::View,Profile::Entity"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vd6pUUTQEeSAnIBjXI5URg" key="Stereotype_Presentation_Kind" value="HorizontalStereo"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vd6pUkTQEeSAnIBjXI5URg" key="PropStereoDisplay" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vd6pU0TQEeSAnIBjXI5URg" key="StereotypePropertyLocation" value="Compartment"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wQjm8E8zEeSqTuTh-g_SaQ" key="StereotypeWithQualifiedNameList" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wQkOAE8zEeSqTuTh-g_SaQ" key="StereotypeList" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wQkOAU8zEeSqTuTh-g_SaQ" key="Stereotype_Presentation_Kind" value="HorizontalStereo"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wQkOAk8zEeSqTuTh-g_SaQ" key="PropStereoDisplay" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wQkOA08zEeSqTuTh-g_SaQ" key="StereotypePropertyLocation" value="Compartment"/>
       </eAnnotations>
       <children xmi:type="notation:DecorationNode" xmi:id="_Hqyu8ETPEeSAnIBjXI5URg" type="5029"/>
       <children xmi:type="notation:BasicCompartment" xmi:id="_Hqyu8UTPEeSAnIBjXI5URg" type="7017">
@@ -38,6 +38,12 @@
       </children>
       <element xmi:type="uml:Class" href="biblio.uml#_Hqnv0ETPEeSAnIBjXI5URg"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HqyH4UTPEeSAnIBjXI5URg" x="219" y="83"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_srYQAE8zEeSqTuTh-g_SaQ" type="2016" element="_G9F7cETPEeSAnIBjXI5URg">
+      <children xmi:type="notation:DecorationNode" xmi:id="_srdIgE8zEeSqTuTh-g_SaQ" type="0">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_srdIgU8zEeSqTuTh-g_SaQ" y="5"/>
+      </children>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_srYQAU8zEeSqTuTh-g_SaQ" x="134" y="301"/>
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_G9F7cUTPEeSAnIBjXI5URg" name="diagram_compatibility_version" stringValue="1.0.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_G9F7ckTPEeSAnIBjXI5URg"/>

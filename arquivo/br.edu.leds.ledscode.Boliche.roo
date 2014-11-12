@@ -6,11 +6,11 @@ jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY
 
 // CRIANDO AS ENTIDADES DE DOMINIO
 entity jpa --class ~.domain.Jogador --activeRecord true --testAutomatically
-field int --fieldName idade  --notNull
 field string --fieldName nome  --notNull
+field number --fieldName idade  --type int
 entity jpa --class ~.domain.Liga --activeRecord true --testAutomatically
 field string --fieldName nome  --notNull
-field jogador --fieldName jogadores --type ~.domain.Jogador --notNull
+field set  --fieldName jogadores --type ~.domain.Jogador
 
 // CRIANDO OS TESTES DE INTEGRACAO
 test integration --entity ~.domain.Jogador
@@ -30,6 +30,7 @@ web mvc finder all
 web mvc language --code de
 web mvc language --code es
 
+web mvc finder all
 
 // CRIANDO WEB SERVICE
 json all

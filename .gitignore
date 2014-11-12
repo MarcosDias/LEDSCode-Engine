@@ -5,6 +5,7 @@
 .classpath
 .project
 .settings/
+.ideia/
 
 #Arquivos de log do Spring Roo
 log.roo

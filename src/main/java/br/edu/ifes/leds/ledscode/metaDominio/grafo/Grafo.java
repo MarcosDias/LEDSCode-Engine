@@ -74,8 +74,15 @@ public class Grafo {
 					.getName());
 
 			for (Property prop : domClass.getAtributos()) {
+				String type = "";
+				if(prop.getType().getName().equals("int")){
+					type = "number";
+				} else{
+					type = prop.getType().getName();
+				}
+				
 				node.getPropriedades().put(prop.getLabel(),
-						prop.getType().getName());
+						type);
 				if (!prop.getType().eClass().getName().toString()
 						.equals("PrimitiveType")) {
 					
