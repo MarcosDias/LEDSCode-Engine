@@ -7,6 +7,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>br.edu.ifes.leds.ledscode</groupId>
+            <artifactId>LEDSCodeSpringROO</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.12.6</version>
@@ -61,11 +67,5 @@
             <artifactId>org.eclipse.uml2.uml</artifactId>
             <version>3.1.0.v201006071150</version>
         </dependency>
-
-        <!--<dependency>-->
-            <!--<groupId>org.mod4j.org.eclipse.emf</groupId>-->
-            <!--<artifactId>ecore</artifactId>-->
-            <!--<version>2.5.0</version>-->
-        <!--</dependency>-->
     </dependencies>
 </project>

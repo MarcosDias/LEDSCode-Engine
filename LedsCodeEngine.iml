@@ -12,6 +12,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="LEDSCodeSpringROO" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.12.6" level="project" />
     <orderEntry type="library" name="Maven: org.jdom:jdom2:2.0.5" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.emf:ecore:2.3.0-v200706262000" level="project" />
