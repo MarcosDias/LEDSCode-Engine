@@ -1,4 +1,4 @@
-package br.edu.ifes.leds.ledscode.loader;
+package br.edu.ifes.leds.ledscode.mdl.loader;
 
 import java.io.IOException;
 import java.util.Map;

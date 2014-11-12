@@ -1,10 +1,10 @@
-package br.edu.ifes.leds.ledscode.frameworks;
+package br.edu.ifes.leds.ledscode.mdl.frameworks;
 
 import java.io.IOException;
 
 import lombok.Getter;
 import lombok.Setter;
-import br.edu.ifes.leds.ledscode.arquivo.Arquivo;
+import model.arquivo.Arquivo;
 
 @Getter
 @Setter

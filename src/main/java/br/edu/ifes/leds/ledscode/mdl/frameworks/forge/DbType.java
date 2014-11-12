@@ -1,4 +1,4 @@
-package br.edu.ifes.leds.ledscode.frameworks.forge;
+package br.edu.ifes.leds.ledscode.mdl.frameworks.forge;
 
 public enum DbType {
 	MYSQL,

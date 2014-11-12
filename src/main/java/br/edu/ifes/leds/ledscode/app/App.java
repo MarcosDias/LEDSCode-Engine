@@ -19,13 +19,13 @@ import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 
 import br.edu.ifes.leds.ledscode.app.exception.ModeloValidoException;
-import br.edu.ifes.leds.ledscode.frameworks.forge.DbType;
-import br.edu.ifes.leds.ledscode.frameworks.forge.Forge;
-import br.edu.ifes.leds.ledscode.frameworks.springROO.SpringROO;
-import br.edu.ifes.leds.ledscode.loader.Loader;
-import br.edu.ifes.leds.ledscode.metaDominio.Dominio;
-import br.edu.ifes.leds.ledscode.metaDominio.grafo.Grafo;
-import br.edu.ifes.leds.ledscode.metaDominio.grafo.Node;
+import br.edu.ifes.leds.ledscode.mdl.frameworks.forge.DbType;
+import br.edu.ifes.leds.ledscode.mdl.frameworks.forge.Forge;
+import br.edu.ifes.leds.ledscode.mdl.frameworks.springROO.SpringROO;
+import br.edu.ifes.leds.ledscode.mdl.loader.Loader;
+import model.Dominio;
+import model.Grafo;
+import model.Node;
 
 public class App {
     static Scanner leitor = new Scanner(System.in);
