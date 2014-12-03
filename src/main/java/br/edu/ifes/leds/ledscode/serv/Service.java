@@ -1,6 +1,8 @@
 package br.edu.ifes.leds.ledscode.serv;
 
+import br.edu.ifes.leds.ledscode.ctrl.EngineController;
 import lombok.Getter;
+import model.Specification;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,6 +12,11 @@ import java.util.HashMap;
  */
 @Getter
 public class Service {
+    EngineController engineController;
+
+    public boolean criaProjeto(Specification specification) {
+        return engineController.criarProjeto(specification);
+    }
 
     /**
      * TODO - REMOVER ATRIBUTO E METODOS SEGUINTES
@@ -22,19 +29,19 @@ public class Service {
     private HashMap<String, ArrayList<String>> orms;
     private HashMap<String, ArrayList<String>> applicationTypes;
 
-    public ArrayList<String> getFrameworks(String language){
+    public ArrayList<String> getFrameworks(String language) {
         return this.frameworks.get(language);
     }
 
-    public ArrayList<String> getDataBase(String framework){
+    public ArrayList<String> getDataBase(String framework) {
         return this.dataBase.get(framework);
     }
 
-    public ArrayList<String> getOrms(String framework){
+    public ArrayList<String> getOrms(String framework) {
         return this.orms.get(framework);
     }
 
-    public ArrayList<String> getApplicationType(String framework){
+    public ArrayList<String> getApplicationType(String framework) {
         return this.applicationTypes.get(framework);
     }
 
