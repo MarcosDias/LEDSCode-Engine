@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import lombok.Getter;
 import lombok.Setter;
-import model.arquivo.Arquivo;
+import mdl.arquivo.Arquivo;
 
 @Getter
 @Setter

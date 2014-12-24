@@ -1,6 +1,7 @@
 package br.edu.ifes.leds.ledscode.ctrl;
 
 
+import ctrl.SpringRooController;
 import model.*;
 import model.Class;
 
@@ -12,6 +13,14 @@ import java.util.HashMap;
  * @author Marcos Dias
  */
 public class EngineController {
+
+    public boolean generateCodeProject(Specification specification) {
+
+        SpringRooController springROO = new SpringRooController();
+        springROO.createProject(specification);
+
+        return true;
+    }
 
     /**
      * Metodo que cria um projeto estatico.
@@ -25,9 +34,8 @@ public class EngineController {
         ArrayList<String> orms = this.getOrms(frameworks.get(0));
         ArrayList<String> applicationTypes = this.getApplicationType(frameworks.get(0));
 
-
         Specification specification = new Specification();
-        specification.setName("Projeto Estatico");
+        specification.setName("Projeto_Estatico");
         specification.setCreatedDate(Calendar.getInstance());
 
         Feature feature = new Feature();
@@ -123,23 +131,23 @@ public class EngineController {
         this.languages.add("Java");
 
         ArrayList<String> listFramewoksJava = new ArrayList<String>();
-        listFramewoksJava.add("SPRINGROO");
+        listFramewoksJava.add("Spring_Roo");
         this.frameworks = new HashMap<String, ArrayList<String>>();
         this.frameworks.put("Java", listFramewoksJava);
 
         ArrayList<String> listDataBaseROO = new ArrayList<String>();
         listDataBaseROO.add("HYPERSONIC_IN_MEMORY");
         this.dataBase = new HashMap<String, ArrayList<String>>();
-        this.dataBase.put("SPRINGROO", listDataBaseROO);
+        this.dataBase.put("Spring_Roo", listDataBaseROO);
 
         ArrayList<String> listOrmsROO = new ArrayList<String>();
         listOrmsROO.add("HIBERNATE");
         this.orms = new HashMap<String, ArrayList<String>>();
-        this.orms.put("SPRINGROO", listOrmsROO);
+        this.orms.put("Spring_Roo", listOrmsROO);
 
         ArrayList<String> listApplicationTypes = new ArrayList<String>();
         listApplicationTypes.add("WEB");
         this.applicationTypes = new HashMap<String, ArrayList<String>>();
-        this.applicationTypes.put("SPRINGROO", listApplicationTypes);
+        this.applicationTypes.put("Spring_Roo", listApplicationTypes);
     }
 }

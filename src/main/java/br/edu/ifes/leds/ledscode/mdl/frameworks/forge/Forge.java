@@ -7,7 +7,7 @@ import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
 import br.edu.ifes.leds.ledscode.mdl.frameworks.BaseFramework;
-import model.Node;
+import mdl.Node;
 
 @Getter
 @Setter
