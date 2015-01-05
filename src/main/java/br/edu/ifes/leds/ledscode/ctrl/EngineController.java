@@ -5,6 +5,9 @@ import ctrl.SpringRooController;
 import model.*;
 import model.Class;
 
+import javax.xml.bind.*;
+import javax.xml.transform.stream.StreamSource;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -14,12 +17,38 @@ import java.util.HashMap;
  */
 public class EngineController {
 
+    /**
+     * Dado um projeto, gera o código
+     * @param specification - modelo tem os parametros e diagramas para geracao de codigo
+     * @return - return true caso nao houve nenhum erro
+     */
+    // TODO - Projeto gerado estaticamente em Spring Roo
     public boolean generateCodeProject(Specification specification) {
 
         SpringRooController springROO = new SpringRooController();
         springROO.createProject(specification);
 
         return true;
+    }
+
+    /**
+     * Converte um string com estrutura XML em um objeto.
+     * @param specification classe referente ao tipo do objeto a ser retornado.
+     * @param nomeArquivo string com o conteudo XML a ser convertido em objeto.
+     * @return retorna um novo objeto de clazz.
+     */
+    public Object lerArquivoXML(Specification specification, String nomeArquivo) {
+        JAXBContext context = null;
+        try {
+            context = JAXBContext.newInstance(specification.getClass());
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            return unmarshaller.unmarshal(
+                    new StreamSource(new StringReader(nomeArquivo))
+            );
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**
@@ -50,7 +79,7 @@ public class EngineController {
         ClassDiagram classDiagram = new ClassDiagram();
         classDiagram.setName("BolicheDiagram");
 
-        specification.getModels().add(classDiagram);
+        specification.setClassDiagram(classDiagram);
 
         // Classe Jogador
         model.Class jogador = new model.Class();
