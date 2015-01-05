@@ -4,7 +4,8 @@ public class App {
 //    static Scanner leitor = new Scanner(System.in);
 
     public static void main(String[] args) {
-
+        
+    }
 //        List<Dominio> classes = null;
 //        List<Node> nodeDom = null;
 //        Map<String, String> dic = null;
@@ -229,6 +230,6 @@ public class App {
 //                return elem;
 //        }
 //        return null;
-    }
+//    }
 
 }
