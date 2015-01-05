@@ -6,8 +6,7 @@ import model.*;
 import model.Class;
 
 import javax.xml.bind.*;
-import javax.xml.transform.stream.StreamSource;
-import java.io.StringReader;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -19,8 +18,8 @@ public class EngineController {
 
     /**
      * Dado um projeto, gera o código
-     * @param specification - modelo tem os parametros e diagramas para geracao de codigo
-     * @return - return true caso nao houve nenhum erro
+     * @param specification modelo tem os parametros e diagramas para geracao de codigo
+     * @return returna true caso nao haja nenhum erro
      */
     // TODO - Projeto gerado estaticamente em Spring Roo
     public boolean generateCodeProject(Specification specification) {
@@ -32,23 +31,31 @@ public class EngineController {
     }
 
     /**
+     * Metodo usado apos a escrita do arquivo xml
+     * necessario para "acordar" a engine e continuar o processo
+     * @param nomeArquivo Nome do arquivo que sera lido
+     * @return returna true caso nao haja nenhum erro
+     */
+    public boolean acordarEngine(String nomeArquivo) throws JAXBException {
+        Specification specification = (Specification) lerArquivoXML(nomeArquivo);
+        
+        this.generateCodeProject(specification);
+        
+        return true;
+    }
+
+    /**
      * Converte um string com estrutura XML em um objeto.
-     * @param specification classe referente ao tipo do objeto a ser retornado.
      * @param nomeArquivo string com o conteudo XML a ser convertido em objeto.
      * @return retorna um novo objeto de clazz.
      */
-    public Object lerArquivoXML(Specification specification, String nomeArquivo) {
+    public Object lerArquivoXML(String nomeArquivo) throws JAXBException {
         JAXBContext context = null;
-        try {
-            context = JAXBContext.newInstance(specification.getClass());
-            Unmarshaller unmarshaller = context.createUnmarshaller();
-            return unmarshaller.unmarshal(
-                    new StreamSource(new StringReader(nomeArquivo))
-            );
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
-        return null;
+        File file = new File(nomeArquivo);
+
+        context = JAXBContext.newInstance(new Specification().getClass());
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        return unmarshaller.unmarshal(file);
     }
 
     /**
