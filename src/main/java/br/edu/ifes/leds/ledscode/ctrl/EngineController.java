@@ -2,6 +2,7 @@ package br.edu.ifes.leds.ledscode.ctrl;
 
 import ctrl.ForgeController;
 import ctrl.SpringRooController;
+import ctrl.XmlController;
 import model.*;
 
 import javax.xml.bind.*;
@@ -14,6 +15,7 @@ import java.util.HashMap;
  * @author Marcos Dias
  */
 public class EngineController {
+    XmlController xmlController = new XmlController();
 
     /**
      * Dado um projeto, gera o código
@@ -39,25 +41,11 @@ public class EngineController {
      * @return returna true caso nao haja nenhum erro
      */
     public boolean acordarEngine(String nomeArquivo) throws JAXBException, IOException {
-        Specification specification = (Specification) lerArquivoXML(nomeArquivo);
+        Specification specification = (Specification) xmlController.lerArquivoXML(nomeArquivo);
         
         this.generateCodeProject(specification);
         
         return true;
-    }
-
-    /**
-     * Converte um string com estrutura XML em um objeto.
-     * @param nomeArquivo string com o conteudo XML a ser convertido em objeto.
-     * @return retorna um novo objeto de clazz.
-     */
-    public Object lerArquivoXML(String nomeArquivo) throws JAXBException {
-        JAXBContext context = null;
-        File file = new File(nomeArquivo);
-
-        context = JAXBContext.newInstance(new Specification().getClass());
-        Unmarshaller unmarshaller = context.createUnmarshaller();
-        return unmarshaller.unmarshal(file);
     }
 
     /**
