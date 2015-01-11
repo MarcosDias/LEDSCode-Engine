@@ -1,6 +1,6 @@
 package br.edu.ifes.leds.ledscode.ctrl;
 
-
+import ctrl.ForgeController;
 import ctrl.SpringRooController;
 import model.*;
 
@@ -8,7 +8,6 @@ import javax.xml.bind.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 
 /**
@@ -25,7 +24,10 @@ public class EngineController {
     public boolean generateCodeProject(Specification specification) throws IOException {
 
         SpringRooController springROO = new SpringRooController();
-        springROO.createProject(specification);
+//        springROO.createProject(specification);
+        
+        ForgeController forge = new ForgeController();
+        forge.createProject(specification);
 
         return true;
     }
