@@ -6,22 +6,6 @@
     <version>1.0.1</version>
     <name>LedsCodeEngine</name>
 
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>2.3.2</version>
-                    <configuration>
-                        <source>1.6</source>
-                        <target>1.6</target>
-                        <compilerArgument></compilerArgument>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
-
     <dependencies>
         <!-- MODULOS -->
         <dependency>
@@ -40,6 +24,12 @@
             <groupId>br.edu.ifes.leds.ledscode</groupId>
             <artifactId>LEDSCodeSpringROO</artifactId>
             <version>1.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>br.edu.ifes.leds.ledscode</groupId>
+            <artifactId>LEDSCodeForge</artifactId>
+            <version>0.0.1</version>
         </dependency>
 
         <!-- LOMBOK -->
