@@ -26,10 +26,10 @@ public class EngineController {
     public boolean generateCodeProject(Specification specification) throws IOException {
 
         SpringRooController springROO = new SpringRooController();
-//        springROO.createProject(specification);
+        springROO.createProject(specification);
         
-        ForgeController forge = new ForgeController();
-        forge.createProject(specification);
+//        ForgeController forge = new ForgeController();
+//        forge.createProject(specification);
 
         return true;
     }
